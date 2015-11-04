@@ -62,11 +62,10 @@ static unsigned int cursorthickness = 2;
  */
 static int bellvolume = 0;
 
-/* TERM value */
+/* default TERM value */
 static char termname[] = "st-256color";
 
 static unsigned int tabspaces = 8;
-
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -100,21 +99,21 @@ static const char *colorname[] = {
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor
+ * foreground, background, cursor, reverse cursor
  */
 static unsigned int defaultfg = 7;
 static unsigned int defaultbg = 257;
 static unsigned int defaultcs = 256;
+static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
- * 2: Block
- * 4: Underline
- * 6: IBeam
+ * 2: Block ("█")
+ * 4: Underline ("_")
+ * 6: Bar ("|")
+ * 7: Snowman ("☃")
  */
-
 static unsigned int cursorshape = 2;
-
 
 /*
  * Default colour and shape of the mouse cursor
@@ -131,9 +130,11 @@ static unsigned int mousebg = 0;
 static unsigned int defaultitalic = 11;
 static unsigned int defaultunderline = 7;
 
-/* Internal mouse shortcuts. */
-/* Beware that overloading Button1 will disable the selection. */
-static Mousekey mshortcuts[] = {
+/*
+ * Internal mouse shortcuts.
+ * Beware that overloading Button1 will disable the selection.
+ */
+static MouseShortcut mshortcuts[] = {
 	/* button               mask            string */
 	{ Button4,              XK_ANY_MOD,     "\031" },
 	{ Button5,              XK_ANY_MOD,     "\005" },
@@ -195,11 +196,17 @@ static KeySym mappedkeys[] = { -1 };
  */
 static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
 
-/* Override mouse-select while mask is active (when MODE_MOUSE is set).
+/*
+ * Override mouse-select while mask is active (when MODE_MOUSE is set).
  * Note that if you want to use ShiftMask with selmasks, set this to an other
- * modifier, set to 0 to not use it. */
+ * modifier, set to 0 to not use it.
+ */
 static uint forceselmod = ShiftMask;
 
+/*
+ * This is the huge key array which defines all compatibility to the Linux
+ * world. Please decide about changes wisely.
+ */
 static Key key[] = {
 	/* keysym           mask            string      appkey appcursor crlf */
 	{ XK_KP_Home,       ShiftMask,      "\033[2J",       0,   -1,    0},
