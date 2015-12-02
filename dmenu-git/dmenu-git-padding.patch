@@ -10,4 +10,3 @@ diff -up dmenu/dmenu.c dmenu-modified/dmenu.c
  	lines = MAX(lines, 0);
  	mh = (lines + 1) * bh;
  #ifdef XINERAMA
-Common subdirectories: dmenu/.git and dmenu-modified/.git

@@ -7,13 +7,13 @@
 
 _pkgname=dmenu
 pkgname=$_pkgname-git
-pkgver=4.5.32.d5ce8df
+pkgver=4.6.0.g32f2564
 pkgrel=1
 pkgdesc="A generic menu for X"
 url="http://tools.suckless.org/dmenu/"
 arch=('i686' 'x86_64')
 license=('MIT')
-depends=('sh' 'libxinerama')
+depends=('sh' 'libxinerama' 'libxft')
 makedepends=('git')
 provides=($_pkgname)
 conflicts=($_pkgname)
@@ -21,12 +21,12 @@ source=(git://git.suckless.org/$_pkgname
         config.h
         dmenu-git-padding.patch)
 sha256sums=('SKIP'
-            '435e80f60d1412a21fda0aee6644cdabae8ce654c3c7640ae48fff66fa7965bd'
-            '173143df0b47eeab1883e36c890db170fa5c57c286fc0469cda9a482a535c3a7')
+            '9dc91e2f8ff64646174fe8751dd2030df66cbe89366c9e0ed2f0082e0a488d2a'
+            '30b88d35c4d356f95b58bca3d42b936a0fdc3521f16c7388545ca7f8c4ee68e4')
 
 pkgver() {
   cd $_pkgname
-  echo 4.5.$(git rev-list 7f45b3f7a..@ --count).$(git rev-parse --short HEAD)
+  git describe --tags --long | sed 's/-/./g'
 }
 
 prepare() {
