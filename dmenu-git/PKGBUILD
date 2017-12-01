@@ -7,7 +7,7 @@
 
 _pkgname=dmenu
 pkgname=$_pkgname-git
-pkgver=4.6.0.g32f2564
+pkgver=4.7.4.gf0a5b75
 pkgrel=1
 pkgdesc="A generic menu for X"
 url="http://tools.suckless.org/dmenu/"
@@ -19,10 +19,7 @@ provides=($_pkgname)
 conflicts=($_pkgname)
 source=(git://git.suckless.org/$_pkgname
         config.h
-        dmenu-git-padding.patch)
-sha256sums=('SKIP'
-            '9dc91e2f8ff64646174fe8751dd2030df66cbe89366c9e0ed2f0082e0a488d2a'
-            '30b88d35c4d356f95b58bca3d42b936a0fdc3521f16c7388545ca7f8c4ee68e4')
+        dmenu-padding-20171201.patch)
 
 pkgver() {
   cd $_pkgname
@@ -55,3 +52,6 @@ package() {
   make PREFIX=/usr DESTDIR="$pkgdir" install
   install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
 }
+sha256sums=('SKIP'
+            '59ee712b7580e9a8747fc61bcfa2af25b9948c5440f768c168067daf74acfd5b'
+            'f1ef4b5c97540c3a9293134bf35439838d40cd2bd8ef49675c6127c0efe1128c')

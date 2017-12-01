@@ -1,0 +1,32 @@
+diff --git a/drw.c b/drw.c
+index c638323..81c9f85 100644
+--- a/drw.c
++++ b/drw.c
+@@ -229,9 +229,9 @@ drw_rect(Drw *drw, int x, int y, unsigned int w, unsigned int h, int filled, int
+ 		return;
+ 	XSetForeground(drw->dpy, drw->gc, invert ? drw->scheme[ColBg].pixel : drw->scheme[ColFg].pixel);
+ 	if (filled)
+-		XFillRectangle(drw->dpy, drw->drawable, drw->gc, x, y, w, h);
++		XFillRectangle(drw->dpy, drw->drawable, drw->gc, x, y + 4, w, h);
+ 	else
+-		XDrawRectangle(drw->dpy, drw->drawable, drw->gc, x, y, w - 1, h - 1);
++		XDrawRectangle(drw->dpy, drw->drawable, drw->gc, x, y + 4, w - 1, h - 1);
+ }
+ 
+ int
+diff --git a/dwm.c b/dwm.c
+index ff893df..70c6d5e 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -1546,7 +1546,7 @@ setup(void)
+ 	if (!drw_fontset_create(drw, fonts, LENGTH(fonts)))
+ 		die("no fonts could be loaded.");
+ 	lrpad = drw->fonts->h;
+-	bh = drw->fonts->h + 2;
++	bh = drw->fonts->h + 12;
+ 	updategeom();
+ 	/* init atoms */
+ 	utf8string = XInternAtom(dpy, "UTF8_STRING", False);
+-- 
+2.15.0
+

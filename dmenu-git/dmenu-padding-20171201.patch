@@ -1,0 +1,25 @@
+From 86757d2f31722a00636ace3f463d957919e910f3 Mon Sep 17 00:00:00 2001
+From: Dimiter Petrov <crackofdusk@gmail.com>
+Date: Sat, 2 Dec 2017 00:06:03 +0100
+Subject: [PATCH] Increase padding
+
+---
+ dmenu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/dmenu.c b/dmenu.c
+index eae5685..d3e7ed0 100644
+--- a/dmenu.c
++++ b/dmenu.c
+@@ -562,7 +562,7 @@ setup(void)
+ 	utf8 = XInternAtom(dpy, "UTF8_STRING", False);
+ 
+ 	/* calculate menu geometry */
+-	bh = drw->fonts->h + 2;
++	bh = drw->fonts->h + 12;
+ 	lines = MAX(lines, 0);
+ 	mh = (lines + 1) * bh;
+ #ifdef XINERAMA
+-- 
+2.15.0
+

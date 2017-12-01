@@ -1,6 +1,6 @@
 pkgname=dwm-git
 _pkgname=dwm
-pkgver=6.0.43.g14343e6
+pkgver=6.1.22.g3756f7f
 pkgver(){
   cd $_pkgname
   git describe --tags |sed 's/-/./g'
@@ -20,8 +20,8 @@ conflicts=('dwm')
 epoch=1
 source=( dwm.desktop
     config.h
-    dwm-6.0-pwkl.patch
-    dwm-6.0-status-padding.patch
+    dwm-6.1-pwkl.patch
+    dwm-status-padding-20171201.patch
     "$_pkgname::git+http://git.suckless.org/dwm")
 
 prepare() {
@@ -51,9 +51,8 @@ package() {
   install -m644 -D $srcdir/dwm.desktop $pkgdir/usr/share/xsessions/dwm.desktop
 }
 
-# vim:set ts=2 sw=2 et:
-md5sums=('939f403a71b6e85261d09fc3412269ee'
-         'a04d19d5005262fd5c9baa9bfab18036'
-         'abb9a181b969e0022b37438639e3ff69'
-         '2a86f3a4386fb0432572aff65fd88d61'
-         'SKIP')
+sha256sums=('bc36426772e1471d6dd8c8aed91f288e16949e3463a9933fee6390ee0ccd3f81'
+            '2e0745a7ba9fc4a6bc1720c53392108c764d481dbb1c9e518045de81ed306aef'
+            'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+            'c6c3af22ab45c3da381917e146b913f86a63fa2b2c1f39292d9077256d5b18ee'
+            'SKIP')
