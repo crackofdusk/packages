@@ -7,7 +7,7 @@
 
 _pkgname=dmenu
 pkgname=$_pkgname-git
-pkgver=4.7.4.gf0a5b75
+pkgver=4.8.12.gbbc464d
 pkgrel=1
 pkgdesc="A generic menu for X"
 url="http://tools.suckless.org/dmenu/"
