@@ -1,6 +1,6 @@
 pkgname=dwm-git
 _pkgname=dwm
-pkgver=6.1.22.g3756f7f
+pkgver=6.1.33.gb69c870
 pkgver(){
   cd $_pkgname
   git describe --tags |sed 's/-/./g'
@@ -52,7 +52,7 @@ package() {
 }
 
 sha256sums=('bc36426772e1471d6dd8c8aed91f288e16949e3463a9933fee6390ee0ccd3f81'
-            '2e0745a7ba9fc4a6bc1720c53392108c764d481dbb1c9e518045de81ed306aef'
+            'eaa1095c3448533828270dea5770826da057435b0b3b0ed68fa6979ffd44d22f'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             'c6c3af22ab45c3da381917e146b913f86a63fa2b2c1f39292d9077256d5b18ee'
             'SKIP')
